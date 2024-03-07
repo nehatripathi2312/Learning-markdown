@@ -10,21 +10,21 @@
 
  [What makes Bitcoin different?](#what-makes-bitcoin-different)
 
- [What gives Bitcoin value?]()
+ [What gives Bitcoin value?](#what-gives-bitcoin-value)
 
- [How does Bitcoin work?]()
+ [How does Bitcoin work?](#how-does-bitcoin-work)
 
- [Who controls Bitcoin?]()
+ [Who controls Bitcoin?](#who-controls-bitcoin)
 
- [Why does Bitcoin exist? Is it needed?]()
+ [Why does Bitcoin exist? Is it needed?](#why-does-bitcoin-exist-is-it-needed)
 
- [Is Bitcoin legal?]()
+ [Is Bitcoin legal?](#is-bitcoin-legal)
 
- [Can bitcoin be stolen?]()
+ [Can bitcoin be stolen?](#can-bitcoin-be-stolen)
 
- [Could there be a bug in the Bitcoin software?]()
+ [Could there be a bug in the Bitcoin software?](#could-there-be-a-bug-in-the-bitcoin-software)
 
- [Can the Bitcoin network be shut down or hacked?]()
+ [Can the Bitcoin network be shut down or hacked?](#can-the-bitcoin-network-be-shut-down-or-hacked)
 
 # What makes Bitcoin different?
 Bitcoin is a **decentralized digital asset**. Let’s break that down.
