@@ -6,7 +6,7 @@
 
  Use the multichain Bitcoin.com Wallet app, trusted by millions to safely and easily buy, sell, trade, and manage bitcoin and the most popular cryptocurrencies
 
-# Table of Contents
+## Table of Contents
 
  [What makes Bitcoin different?]()
 
@@ -26,8 +26,8 @@
 
  [Can the Bitcoin network be shut down or hacked?]()
 
-What makes Bitcoin different?
-Bitcoin is a decentralized digital asset. Let’s break that down.
+# What makes Bitcoin different?
+Bitcoin is a **decentralized digital asset**. Let’s break that down.
 
 ![alt text](images/image2.png)
 
@@ -50,15 +50,16 @@ What may seem like one go-between is often many more. Take a stock trading app f
 
 Additionally, unlike almost all modern financial transactions which are electronic, physical cash and Bitcoin are similar in that they can be transacted directly, without third parties, and without asking for permission to create an account.
 
-Exchanging cash directly doesn’t require intermediaries, but the creation of cash is solely dependent on a trusted third party, such as a central bank. The creation of new Bitcoin, by contrast, occurs programmatically and is limited to 21 million units. More on this later.
+Exchanging cash directly doesn’t require intermediaries, **but the creation of cash is solely dependent on a trusted third party, such as a central bank**. The creation of new Bitcoin, by contrast, occurs programmatically and is limited to 21 million units. More on this later.
 
 ![alt text](images/image6.png)
 
-What gives Bitcoin value?
+# What gives Bitcoin value?
 The value of Bitcoin comes from two connected aspects that support and reinforce each other:
 
-Its features
-Its network effects
+1. Its features
+2. Its network effects
+
 ![alt text](images/image7.png)
 
 When a network grows, its utility grows also. The classic example is a telephone network. When there are only a few people on the network, it’s hardly valuable. But when you can call anyone, the network is more valuable. The same is true of money networks.
@@ -73,7 +74,7 @@ People settled on gold thanks to three key features: rarity, durability, and div
 
 Bitcoin is often compared to gold because it has similar characteristics. Namely:
 
-It has a limited supply
+**It has a limited supply**
 
 There will only ever be 21 million bitcoins, which means Bitcoin is rare compared to other things that served as money like seashells, salt, and cash.
 
@@ -115,7 +116,8 @@ Although Bitcoin, which started in 2009, is much newer than gold, Bitcoin’s ne
 
 ![alt text](images/image16.png)
 
-How does Bitcoin work?
+# How does Bitcoin work?
+
 First, let’s begin with how money usually appears in a bank. The money in a bank appears on a ledger.
 
 ![alt text](images/image17.png)
@@ -152,7 +154,7 @@ The group of people who engage in Proof of Work in Bitcoin are called “miners.
 
 Read more: Find out how Bitcoin mining works and why it's needed.
 
-Who controls Bitcoin?
+# Who controls Bitcoin?
 You may be asking, “Where did Bitcoin come from and how are its rules decided?"
 
 The Bitcoin protocol is open-source software that was originally created by Bitcoin’s pseudonymous founder, Satoshi Nakamoto. Anyone in the world can run the software, and thousands of people have contributed to its development since launching in 2009. The group of people who voluntarily run the software form the Bitcoin network.
@@ -161,21 +163,21 @@ The Bitcoin protocol can change. And the way it changes is influenced by a much 
 
 Read more: Dive deeper into Bitcoin’s governance process and how Bitcoin evolves.
 
-Why does Bitcoin exist? Is it needed?
+# Why does Bitcoin exist? Is it needed?
 Bitcoin is an alternative form of digital money that is not issued by nation states or corporations and is not controlled by financial intermediaries like banks. People who find value in this new form of money include investors, libertarians, the financially oppressed (no matter where they live), and others.
 
 Read more: Discover how Bitcoin is helping people around the world avoid financial oppression.
 
-Is Bitcoin legal?
+# Is Bitcoin legal?
 Bitcoin is perfectly legal to hold in most countries, including all Western democracies, where freedom of speech is enshrined (Bitcoin is, after all, nothing more than open-source code). Some countries have attempted to ban the use of Bitcoin, but due to Bitcoin’s decentralized nature, it’s virtually impossible to enforce total bans.
 
-Can bitcoin be stolen?
+# Can bitcoin be stolen?
 With a few simple precautions in place, holding bitcoin is extremely secure. The vast majority of instances of bitcoin being “stolen" involve the victim mistakenly sending it to the attacker rather than a bitcoin wallet being hacked or stolen.
 
 Read more: How to avoid the most common Bitcoin fraud attempts.
 
-Could there be a bug in the Bitcoin software?
+# Could there be a bug in the Bitcoin software?
 Bugs have been found in the past, but they’ve never resulted in problems that can’t easily be fixed. Bitcoin’s code is constantly reviewed and there is huge motivation for attackers and others to discover bugs, yet no such attempts have proven successful. Importantly, if a catastrophic bug were exploited, the decentralized network of participants could collectively decide to roll back the clock to before the exploit, ensuring that no funds are lost or stolen.
 
-Can the Bitcoin network be shut down or hacked?
+# Can the Bitcoin network be shut down or hacked?
 Shutting down the Bitcoin network would require shutting down the entire global internet and cutting all electricity. While it’s technically possible to “hack" or take over the entire Bitcoin network, doing so would cost billions of dollars and require a massive coordinated effort involving global chip manufacturers. Importantly, even if successful, a hacker would not be enriched by the attack since it would destroy the value of the Bitcoin network.
