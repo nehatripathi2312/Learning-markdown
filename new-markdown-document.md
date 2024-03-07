@@ -2,7 +2,7 @@
 
  Bitcoin is a decentralized digital asset. It is a new type of asset that joins the ranks of traditional assets such as cash, gold, and real estate
 
-![alt text](image.png)
+![alt text](image1.webp)
 
  Use the multichain Bitcoin.com Wallet app, trusted by millions to safely and easily buy, sell, trade, and manage bitcoin and the most popular cryptocurrencies
 
