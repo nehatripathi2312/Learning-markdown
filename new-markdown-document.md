@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
- [What makes Bitcoin different?](./# What makes Bitcoin different? )
+ [What makes Bitcoin different?](#what-makes-bitcoin-different)
 
  [What gives Bitcoin value?]()
 
