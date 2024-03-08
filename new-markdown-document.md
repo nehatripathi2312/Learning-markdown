@@ -31,12 +31,11 @@ Bitcoin is a **decentralized digital asset**. Let’s break that down.
 
 ![alt text](images/image2.png)
 
-Bitcoin is a decentralized digital asset
+Bitcoin is a decentralized digital asset.
 
 Bitcoin spans many traditional assets, such as cash and gold. For example, you can use it like money or as a store of value.
 
 ![alt text](images/image3.png)
-
 
 Another key to what makes Bitcoin different is its decentralized and “trustless" model. This means that trusted third parties (middlemen such as banks) aren’t necessary with Bitcoin. These third parties act as go-betweens, and are often called intermediaries.
 
@@ -64,11 +63,11 @@ The value of Bitcoin comes from two connected aspects that support and reinforce
 
 When a network grows, its utility grows also. The classic example is a telephone network. When there are only a few people on the network, it’s hardly valuable. But when you can call anyone, the network is more valuable. The same is true of money networks.
 
-N![alt text](images/image8.png)
+![alt text](images/image8.png)
 
 Historically, people have used everything from seashells to bottle caps as money, but arguably the most enduring form of money is gold. Why?
 
-People settled on gold thanks to three key features: rarity, durability, and divisibility. These features made gold useful as a method for storing and exchanging value. Thanks to gold’s utility in this regard, the gold 'network' grew over time until gold became almost universally accepted as having value.  For hundreds of years, gold was the primary unit of account and reserve currency in much of the world. Recently, the US dollar has largely replaced gold, although gold does continue to have value.
+People settled on gold thanks to three key features: **rarity**, **durability**, and **divisibility**. These features made gold useful as a method for storing and exchanging value. Thanks to gold’s utility in this regard, the gold 'network' grew over time until gold became almost universally accepted as having value.  For hundreds of years, gold was the primary unit of account and reserve currency in much of the world. Recently, the US dollar has largely replaced gold, although gold does continue to have value.
 
 ![alt text](images/image9.png)
 
@@ -84,13 +83,13 @@ When things are not rare, they have less value over time. And if that is used as
 
 ![alt text](images/image11.png)
 
-It's easily divisible
+**It's easily divisible**
 
 You can divide one bitcoin into 100 million pieces (100 million sats), whereas 1 US dollar can be broken into 100 pieces (100 cents). This means that the world will never “run out" of Bitcoin. It can always be divided into smaller and smaller pieces.
 
 ![alt text](images/image12.png)
 
-It's durable
+**It's durable**
 
 The internet is durable because it is made up of a global network of computer systems. Similarly, a huge globally distributed network of independently operated computers tracks Bitcoin ownership. This ensures that no bitcoin is lost.
 
@@ -98,19 +97,19 @@ The internet is durable because it is made up of a global network of computer sy
 
 Beyond this, Bitcoin has a few other important features which improve upon gold's monetary properties. These are:
 
-It's more portable
+**It's more portable**
 
 Sending any amount of bitcoin to anyone in the world can be done in minutes.
 
 M![alt text](images/image14.png)
 
-It’s more easily verified
+**It’s more easily verified**
 
 It's easy to verify the authenticity of bitcoin. Actually, it's effectively impossible to transact with fake bitcoin, as opposed to many gold scams. The many gold verification methods attest to that.
 
 ![alt text](images/image15.png)
 
-It has stronger network effects
+**It has stronger network effects**
 
 Although Bitcoin, which started in 2009, is much newer than gold, Bitcoin’s network effects benefit from the scale and speed of the internet. That’s because Bitcoin is a digital asset whose proponents are digital natives. So while the number of people who own Bitcoin has grown from zero in 2009 to over 100 million today, the number of people who own gold has remained relatively stagnant over the same period. It remains to be seen how wide the Bitcoin network will become, but if it were to achieve the same market cap as gold, each Bitcoin would be worth around $500,000.
 
@@ -155,6 +154,7 @@ The group of people who engage in Proof of Work in Bitcoin are called “miners.
 Read more: Find out how Bitcoin mining works and why it's needed.
 
 # Who controls Bitcoin?
+
 You may be asking, “Where did Bitcoin come from and how are its rules decided?"
 
 The Bitcoin protocol is open-source software that was originally created by Bitcoin’s pseudonymous founder, Satoshi Nakamoto. Anyone in the world can run the software, and thousands of people have contributed to its development since launching in 2009. The group of people who voluntarily run the software form the Bitcoin network.
