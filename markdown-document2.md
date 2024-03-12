@@ -52,3 +52,160 @@ Each request consumes 1 point towards the rate limit. [POST v3/orders](https://d
 |RateLimit-Reset|Timestamp that the time window ends, in Epoch milliseconds.|
 |Retry-After |Milliseconds until the next time window. Header included only when the limit has been reached.|
 |RateLimit-Limit |The maximum amount of points allowed per time window.|
+
+|Request| Limit|
+|--------| --------------------|
+|GET v3/*| 175 requests per 10 seconds.|
+|PUT v3/emails/send-verification-email |2 requests for 10 minutes.|
+|DELETE v3/orders| See Cancel-Order Rate Limits|
+|POST v3/orders| See Place-Order Rate-Limits|
+|POST v3/testnet/tokens| 5 requests per 24 hours.|
+|GET v3/active-order |See Active-Order Rate-Limits|
+|DELETE v3/active-orders| See Active-Order Rate-Limits|
+|All other requests |10 requests per minute.|
+
+## Rate Limit - Websocket
+Limits are enforced per <connectionId.>
+
+ If your connection exceeds the request limit, we will terminate the connection, and you will need to reconnect to the websocket. Additionally, sending too many invalid messages will also result in your websocket being disconnected.
+|Request| Limit|
+|-----------| -----------------------|
+|subscribe v3_accounts, v3_markets| 2 requests per 1 second.|
+|subscribe v3_orderbook, v3_trades| 2 requests for 1 second per market.|
+|ping| 5 requests per 1 second.|
+
+## Cancel-Order Rate Limits
+Canceling orders is limited per asset-pair and is intended to be higher than the limit on placing orders.
+
+<DELETE v3/orders> requests are limited to <3> requests per <10> seconds per asset-pair.
+
+<DELETE v3/orders/:id> requests are limited to <250> requests per <10> seconds per asset-pair.
+
+## Place-Order Rate-Limits
+Order rate limits are limited to maxPoints spent (per asset-pair) in a fixed window of <windowSec> seconds.
+
+We want to give priority to those who are making the largest orders and who are contributing the most liquidity to the exchange. Therefore, placing larger orders is subject to higher limits (i.e. larger orders carry a lower point cost). The point cost is based on the orderNotional which is equal to the <size * price> of the order.
+
+<Limit-order point consumption is equal to:
+orderConsumption = clamp(
+  ceil(targetNotional / orderNotional),
+  minOrderConsumption,
+  maxOrderConsumption
+)> 
+
+The <minOrderConsumption> is different for each order type, and can be one of minLimitConsumption, <minMarketConsumption,> or minTriggerableConsumption. Limit orders that are Fill-or-Kill or Immediate-or-Cancel are considered to be market orders for the purposes of rate limiting.
+
+The values of the above variables as of March 15th, 2022 are listed below, but the most up-to-date values can be found in the [v3/config endpoint.] (https://dydxprotocol.github.io/v3-teacher/#get-global-configuration-variables)
+
+|Variable| Value|
+|----------| ----------------|
+|maxPoint| 1,750|
+|windowSec| 10|
+|targetNotional| 40,000|
+|minLimitConsumption| 4|
+|minMarketConsumption| 20|
+|minTriggerableConsumption| 100|
+|maxOrderConsumption| 100|
+
+## Active-Order Rate-Limits
+Querying active orders is limited per endpoint and per asset and is intended to be higher than the respective DELETE and GET endpoints these new endpoints replace.
+
+## DELETE Active-Orders Rate Limits
+
+<DELETE v3/active-orders/*> 
+
+- 425 points allotted per 10 seconds per market.
+- 1 point consumed if order id included.
+- 25 points consumed if order side included.
+- 50 points consumed otherwise.
+
+## GET Active-Orders Rate Limits
+<GET v3/active-orders/*>
+
+- 175 points allotted per 10 seconds per market.
+- 1 point consumed if order id included.
+- 3 points consumed if order side included.
+- 5 points consumed otherwise.
+
+## Other Limits
+
+Accounts may only have up to 20 open orders for a given market/side pair at any one time. (For example up to 20 open <BTC-USD> bids).
+
+# Perpetual Contracts
+
+The dYdX Perpetual is a non-custodial, decentralized margin product that offers synthetic exposure to a variety of assets.
+
+## Margin
+
+Collateral is held as USDC, and the quote asset for all perpetual markets is USDC. Cross-margining is used by default, meaning an account can open multiple positions that share the same collateral. Isolated margin can be achieved by creating separate accounts (sub-accounts) under the same user.
+
+Each market has three risk parameters, the <initialMarginFraction>, <maintenanceMarginFraction> and <incrementalInitialMarginFraction>, which determine the max leverage available within that market. These are used to calculate the value that must be held by an account in order to open or increase positions (in the case of initial margin) or avoid liquidation (in the case of maintenance margin).
+
+## Risk Parameters and Related Fields
+
+|Risk| Description|
+|------------| -------------------|
+|initialMarginFraction| The margin fraction needed to open a position.|
+|maintenanceMarginFraction| The margin fraction required to prevent liquidation.|
+|incrementalInitialMarginFraction| The increase of initialMarginFraction for each incrementalPositionSize above the baselinePositionSize the position is.|
+|baselinePositionSize| The max position size (in base token) before increasing the initial-margin-fraction.|
+|incrementalPositionSize| The step size (in base token) for increasing the initialMarginFraction by (incrementalInitialMarginFraction per step).|
+
+## Portfolio Margining
+There is no distinction between realized and unrealized PnL for the purposes of margin calculations. Gains from one position will offset losses from another position within the same account, regardless of whether the profitable position is closed.
+
+## Margin Calculation
+The margin requirement for a single position is calculated as follows:
+
+<Initial Margin Requirement = abs(S × P × I)
+Maintenance Margin Requirement = abs(S × P × M)> 
+
+Where:
+
+- S is the size of the position (positive if long, negative if short)
+- P is the oracle price for the market
+- I is the initial margin fraction for the market
+- M is the maintenance margin fraction for the market
+
+The margin requirement for the account as a whole is the sum of the margin requirement over each market i in which the account holds a position:
+
+<Total Initial Margin Requirement = Σ abs(Si × Pi × Ii)
+Total Maintenance Margin Requirement = Σ abs(Si × Pi × Mi)>
+
+The total margin requirement is compared against the total value of the account, which incorporates the quote asset (USDC) balance of the account as well as the value of the positions held by the account:
+
+<Total Account Value = Q + Σ (Si × Pi)>
+
+The Total Account Value is also referred to as equity.
+
+Where:
+
+- Q is the account's USDC balance (note that Q may be negative). In the API, this is called quoteBalance. Every time a transfer, deposit or withdrawal occurs for an account, the balance changes. Also, when a position is modified for an account, the quoteBalance changes. Also funding payments and liquidations will change an account's quoteBalance.
+- S and P are as defined above (note that S may be negative)
+An account cannot open new positions or increase the size of existing positions if it would lead the total account value of the account to drop below the total initial margin requirement. If the total account value ever falls below the total maintenance margin requirement, the account may be liquidated.
+
+Free collateral is calculated as:
+
+<Free collateral = Total Account Value - Total Initial Margin Requirement> 
+
+Equity and free collateral can be tracked over time using the latest oracle price (obtained from the markets websocket).
+
+## Liquidations
+
+Accounts whose total value falls below the maintenance margin requirement (described above) may have their positions automatically closed by the liquidation engine. Positions are closed at the close price described below. Profits or losses from liquidations are taken on by the insurance fund.
+
+## Close Price for Liquidations
+
+The close price for a position being liquidated is calculated as follows, depending whether it is a short or long position:
+
+<Close Price (Short) = P × (1 + (M × V / W))
+Close Price (Long) = P × (1 − (M × V / W))>
+
+Where:
+
+1. P is the oracle price for the market
+2. M is the maintenance margin fraction for the market
+3. V is the total account value, as defined above
+4. W is the total maintentance margin requirement, as defined above
+
+This formula is chosen such that the ratio V / W is unchanged as individual positions are liquidated.
