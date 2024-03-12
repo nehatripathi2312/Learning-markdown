@@ -44,9 +44,11 @@ Limits are enforced by IP Address for public endpoints, and by both IP Address a
 
 Each request consumes 1 point towards the rate limit. [POST v3/orders](https://dydxprotocol.github.io/v3-teacher/#rate-limit-api) consumes variable points based on the order. Points refresh at the end of each time window. Please take note of the RateLimit-Remaining header to track points usage.
 
-## |Response|  |Headers|
-|Field| 	|Description|
-|RateLimit-Remaining|	|Points remaining in the time window.|
-|RateLimit-Reset|	|Timestamp that the time window ends, in Epoch milliseconds.|
-|Retry-After|	|Milliseconds until the next time window. Header included only when the limit has been reached.|
-|RateLimit-Limit|	|The maximum amount of points allowed per time window.|
+## Response  Headers
+
+|Field |Description|
+|------------|----------------|
+|RateLimit-Remaining |Points remaining in the time window.|
+|RateLimit-Reset|Timestamp that the time window ends, in Epoch milliseconds.|
+|Retry-After |Milliseconds until the next time window. Header included only when the limit has been reached.|
+|RateLimit-Limit |The maximum amount of points allowed per time window.|
