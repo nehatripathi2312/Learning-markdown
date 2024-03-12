@@ -120,7 +120,7 @@ Querying active orders is limited per endpoint and per asset and is intended to 
 - 50 points consumed otherwise.
 
 ## GET Active-Orders Rate Limits
-<GET v3/active-orders/*>
+<code> GET v3/active-orders </code>
 
 - 175 points allotted per 10 seconds per market.
 - 1 point consumed if order id included.
